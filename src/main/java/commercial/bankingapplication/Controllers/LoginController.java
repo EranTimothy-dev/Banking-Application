@@ -1,16 +1,25 @@
 package commercial.bankingapplication.Controllers;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
 
-public class LoginController extends Application {
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+public class LoginController {
 
-    @Override
-    public void start(Stage primaryStage) {
+    @FXML
+    public ChoiceBox acc_selector;
+    @FXML
+    public Label payee_address_lbl;
+    @FXML
+    public TextField payee_address_fld;
+    @FXML
+    public TextField password_fld;
+    @FXML
+    public Button login_btn;
+    @FXML
+    public Label error_lbl;
 
-    }
 }
