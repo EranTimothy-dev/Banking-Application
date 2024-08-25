@@ -43,6 +43,7 @@
 .login_form_container {
     -fx-spacing: 15;
     -fx-alignment: top_left;
+    /*-fx-alignment: conter;*/
 }
 
 .login_form_container Label {
@@ -62,10 +63,13 @@
     -fx-pref-width: 350;
     -fx-pref-height: 30;
     -fx-font-size: 1.2em;
+    -fx-alignment: center;
+    /*-fx-padding: 0 0 0 20;*/
 }
 
 .login_form_container Button:hover {
     -fx-cursor: hand;
+    -fx-text-fill: #32d732;
 }
 
 .error_lbl {
