@@ -1,10 +1,11 @@
 .main_menu_container {
     -fx-background-color: #EEEEEE;
-    -fx-alingnment: center;
+    -fx-alignnment: center;
 }
 
 .left_container {
     -fx-background-color: #FFFFFF;
+    /*-fx-background-color: #123A13;*/
     -fx-background-radius: 10;
     -fx-effect: dropshadow(two-pass-box, #AAAAAA, 5, 0, 0, 4);
 }
@@ -44,6 +45,13 @@
 
 .menu_container Button:hover {
     -fx-cursor: hand;
+    /*-fx-background-color: #32d732*/
+    -fx-text-fill: #32d732;
+    /*-fx-fill: #32d732;*/
+}
+
+.menu_container_btn:hover FontAwesomeIconView {
+    -fx-fill: #32d732;
 }
 
 .menu_container Button FontAwesomeIconView {
@@ -61,6 +69,10 @@
 
 .alt_menu_btn FontAwesomeIconView {
     -fx-fill: #FFFFFF;
+}
+
+.alt_menu_btn:hover FontAwesomeIconView {
+    -fx-fill: #32d732;
 }
 
 /* Report Bug/Suggestion */
@@ -90,6 +102,7 @@
 
 .report_container Button:hover {
     -fx-cursor: hand;
+    -fx-text-fill: #32d732;
 }
 
 .report_container Button FontAwesomeIconView {

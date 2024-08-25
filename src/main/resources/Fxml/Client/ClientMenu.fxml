@@ -24,17 +24,17 @@
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maze Bank" />
       </VBox>
       <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <Button fx:id="dashboard_btn" mnemonicParsing="false" prefHeight="55.0" prefWidth="128.0" text="Dashboard">
+         <Button fx:id="dashboard_btn" mnemonicParsing="false" prefHeight="55.0" prefWidth="128.0" styleClass="menu_container_btn" text="Dashboard">
             <graphic>
                <FontAwesomeIconView glyphName="HOME" size="20" />
             </graphic>
          </Button>
-         <Button mnemonicParsing="false" text="Transactions">
+         <Button mnemonicParsing="false" styleClass="menu_container_btn" text="Transactions">
             <graphic>
                <FontAwesomeIconView fx:id="transaction_btn" glyphName="HANDSHAKE_ALT" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="accounts_btn" mnemonicParsing="false" text="Accounts">
+         <Button fx:id="accounts_btn" mnemonicParsing="false" styleClass="menu_container_btn" text="Accounts">
             <graphic>
                <FontAwesomeIconView glyphName="ADDRESS_BOOK_ALT" size="20" />
             </graphic>
