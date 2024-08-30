@@ -13,6 +13,8 @@ module commercial.bankingapplication {
     requires com.almasb.fxgl.all;
     requires de.jensd.fx.glyphs.fontawesome;
     requires org.xerial.sqlitejdbc;
+    requires org.kordamp.ikonli.elusive;
+    requires org.kordamp.ikonli.bootstrapicons;
 
     opens commercial.bankingapplication to javafx.fxml;
     exports commercial.bankingapplication;
