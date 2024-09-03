@@ -18,6 +18,10 @@ public class App extends Application {
 //        stage.setScene(scene);
 //        stage.setTitle("Banking Application");
 //        stage.show();
+
+
+        // access the view for the login window through the model
+        // which object will create an instance on the ViewFactory to call the methods in the viewFactory
         Model.getInstance().getViewFactory().showLoginWindow();
  }
 }

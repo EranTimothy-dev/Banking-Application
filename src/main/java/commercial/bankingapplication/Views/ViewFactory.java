@@ -14,6 +14,7 @@ public class ViewFactory {
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
 
+    // create constructor for ViewFactory
     public ViewFactory(){}
 
     // load the dashboard fxml
