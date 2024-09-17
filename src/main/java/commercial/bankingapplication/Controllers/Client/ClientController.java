@@ -15,10 +15,12 @@ public class ClientController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // add a listener to this property
+        // add a listener to this property and load the required view
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
+            // by default load the dashboard
             switch (newVal){
                 case "Transactions" -> client_parent.setCenter(Model.getInstance().getViewFactory().getTransactionsView());
+                case "Accounts" -> client_parent.setCenter(Model.getInstance().getViewFactory().getAccountsView());
                 default -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         });

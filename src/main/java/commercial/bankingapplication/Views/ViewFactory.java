@@ -16,12 +16,17 @@ public class ViewFactory {
     private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
+    private AnchorPane accountsView;
 
     // create constructor for ViewFactory
     public ViewFactory(){
+        // create a string property that will store which menu item the user has selected
         this.clientSelectedMenuItem = new SimpleStringProperty("");
     }
 
+    /*
+    * Client View Section
+     */
     public StringProperty getClientSelectedMenuItem(){
         return clientSelectedMenuItem;
     }
@@ -48,6 +53,18 @@ public class ViewFactory {
             }
         }
         return transactionsView;
+    }
+
+    // load the transaction fxml
+    public AnchorPane getAccountsView(){
+        if(accountsView == null){
+            try{
+                accountsView = new FXMLLoader(getClass().getResource("/Fxml/Client/Accounts.fxml")).load();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        return accountsView;
     }
 
     // get the login window
