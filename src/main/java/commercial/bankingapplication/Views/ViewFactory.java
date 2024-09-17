@@ -1,5 +1,6 @@
 package commercial.bankingapplication.Views;
 
+import commercial.bankingapplication.Controllers.Admin.AdminController;
 import commercial.bankingapplication.Controllers.Client.ClientController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -18,10 +19,17 @@ public class ViewFactory {
     private AnchorPane transactionsView;
     private AnchorPane accountsView;
 
+    // Admin Views
+    private final StringProperty adminSelectedMenuItem;
+    private AnchorPane createClientView;
+
+
+
     // create constructor for ViewFactory
     public ViewFactory(){
         // create a string property that will store which menu item the user has selected
         this.clientSelectedMenuItem = new SimpleStringProperty("");
+        this.adminSelectedMenuItem = new SimpleStringProperty("");
     }
 
     /*
@@ -81,6 +89,33 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    /*
+    * Admin Views Section
+     */
+
+    public StringProperty getAdminSelectedMenuItem(){
+        return adminSelectedMenuItem;
+    }
+
+    public AnchorPane getCreateClientView(){
+        if(createClientView == null){
+            try{
+                createClientView = new FXMLLoader(getClass().getResource("/Fxml/Admin/CreateClient.fxml")).load();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        return createClientView;
+    }
+
+
+    public void showAdminWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
+        AdminController adminController = new AdminController();
+        loader.setController(adminController);
+        createStage(loader);
+    }
+
     // create reusable method to load the fxml file and create the stage from it
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
@@ -99,4 +134,6 @@ public class ViewFactory {
     public void closeStage(Stage stage){
         stage.close();
     }
+
+
 }
