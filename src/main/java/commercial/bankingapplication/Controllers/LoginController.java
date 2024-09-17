@@ -31,11 +31,10 @@ public class LoginController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         login_btn.setOnAction(event -> onLogin());
-
-
     }
 
     private void onLogin(){
+        // can use any node in that stage
         Stage stage = (Stage) error_lbl.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showClientWindow();

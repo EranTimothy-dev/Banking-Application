@@ -1,6 +1,8 @@
 package commercial.bankingapplication.Views;
 
 import commercial.bankingapplication.Controllers.Client.ClientController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -11,11 +13,18 @@ import java.io.IOException;
 // class to create methods handling the view of the application
 public class ViewFactory {
     //Client Views
+    private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
 
     // create constructor for ViewFactory
-    public ViewFactory(){}
+    public ViewFactory(){
+        this.clientSelectedMenuItem = new SimpleStringProperty("");
+    }
+
+    public StringProperty getClientSelectedMenuItem(){
+        return clientSelectedMenuItem;
+    }
 
     // load the dashboard fxml
     public AnchorPane getDashboardView(){
