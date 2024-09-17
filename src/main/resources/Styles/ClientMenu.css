@@ -1,6 +1,7 @@
 .main_menu_container {
     -fx-background-color: #EEEEEE;
     -fx-alignnment: center;
+    -fx-padding: 10 10 0 10;
 }
 
 .left_container {
@@ -34,7 +35,7 @@
 }
 
 .menu_container Button {
-    -fx-pref-height: 115;
+    -fx-pref-height: 60;
     -fx-pref-width: 125;
     -fx-background-color: #FFFFFF;
     -fx-text-fill: #132A13;
@@ -59,7 +60,7 @@
 }
 
 .alt_menu_btn {
-    -fx-pref-height: 115;
+    -fx-pref-height: 60;
     -fx-pref-width: 125;
     -fx-background-color: #132A13;
     -fx-text-fill: #FFFFFF;
