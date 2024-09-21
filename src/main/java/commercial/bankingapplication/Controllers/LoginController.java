@@ -47,7 +47,11 @@ public class LoginController  implements Initializable {
         // can use any node in that stage
         Stage stage = (Stage) error_lbl.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showClientWindow();
+        if (Model.getInstance().getViewFactory().getLoginAccountType().equals(AccountType.CLIENT)){
+            Model.getInstance().getViewFactory().showClientWindow();
+        } else {
+            Model.getInstance().getViewFactory().showAdminWindow();
+        }
     }
 }
 
