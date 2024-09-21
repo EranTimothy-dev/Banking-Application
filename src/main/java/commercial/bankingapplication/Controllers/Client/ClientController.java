@@ -1,6 +1,7 @@
 package commercial.bankingapplication.Controllers.Client;
 
 import commercial.bankingapplication.Models.Model;
+import commercial.bankingapplication.Views.ClientMenuOptions;
 import javafx.application.Application;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
@@ -19,8 +20,8 @@ public class ClientController implements Initializable {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
             // by default load the dashboard
             switch (newVal){
-                case "Transactions" -> client_parent.setCenter(Model.getInstance().getViewFactory().getTransactionsView());
-                case "Accounts" -> client_parent.setCenter(Model.getInstance().getViewFactory().getAccountsView());
+                case ClientMenuOptions.TRANSACTIONS -> client_parent.setCenter(Model.getInstance().getViewFactory().getTransactionsView());
+                case ClientMenuOptions.ACCOUNTS -> client_parent.setCenter(Model.getInstance().getViewFactory().getAccountsView());
                 default -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         });

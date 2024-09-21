@@ -2,6 +2,8 @@ package commercial.bankingapplication.Views;
 
 import commercial.bankingapplication.Controllers.Admin.AdminController;
 import commercial.bankingapplication.Controllers.Client.ClientController;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,8 @@ import java.io.IOException;
 // class to create methods handling the view of the application
 public class ViewFactory {
     //Client Views
-    private final StringProperty clientSelectedMenuItem;
+    // use enums as objectproperty instead of stringproperty to reduce possibility of error
+    private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
     private AnchorPane accountsView;
@@ -28,14 +31,14 @@ public class ViewFactory {
     // create constructor for ViewFactory
     public ViewFactory(){
         // create a string property that will store which menu item the user has selected
-        this.clientSelectedMenuItem = new SimpleStringProperty("");
+        this.clientSelectedMenuItem = new SimpleObjectProperty<>();
         this.adminSelectedMenuItem = new SimpleStringProperty("");
     }
 
     /*
     * Client View Section
      */
-    public StringProperty getClientSelectedMenuItem(){
+    public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem(){
         return clientSelectedMenuItem;
     }
 
