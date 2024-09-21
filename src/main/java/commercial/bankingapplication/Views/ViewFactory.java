@@ -27,6 +27,7 @@ public class ViewFactory {
     // use enums as objectproperty instead of stringproperty to reduce possibility of error
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
+    private AnchorPane clientsView;
 
 
 
@@ -111,6 +112,7 @@ public class ViewFactory {
         return adminSelectedMenuItem;
     }
 
+    // fmxl view to create a client
     public AnchorPane getCreateClientView(){
         if(createClientView == null){
             try{
@@ -120,6 +122,18 @@ public class ViewFactory {
             }
         }
         return createClientView;
+    }
+
+    // fxml view to see created clients
+    public AnchorPane getClientsView(){
+        if (clientsView == null){
+            try{
+                clientsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Clients.fxml")).load();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        return clientsView;
     }
 
 

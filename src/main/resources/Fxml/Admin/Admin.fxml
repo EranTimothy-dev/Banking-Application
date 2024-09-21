@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml">
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="admin_parent">
 
     <left>
         <fx:include source="AdminMenu.fxml" />
