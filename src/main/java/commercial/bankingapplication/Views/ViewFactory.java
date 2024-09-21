@@ -15,6 +15,7 @@ import java.io.IOException;
 
 // class to create methods handling the view of the application
 public class ViewFactory {
+    private AccountType loginAccountType;
     //Client Views
     // use enums as objectproperty instead of stringproperty to reduce possibility of error
     private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
@@ -23,16 +24,26 @@ public class ViewFactory {
     private AnchorPane accountsView;
 
     // Admin Views
-    private final StringProperty adminSelectedMenuItem;
+    // use enums as objectproperty instead of stringproperty to reduce possibility of error
+    private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
 
 
 
     // create constructor for ViewFactory
     public ViewFactory(){
+        this.loginAccountType = AccountType.CLIENT;
         // create a string property that will store which menu item the user has selected
         this.clientSelectedMenuItem = new SimpleObjectProperty<>();
-        this.adminSelectedMenuItem = new SimpleStringProperty("");
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
+    }
+
+    public AccountType getLoginAccountType(){
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
     }
 
     /*
@@ -96,7 +107,7 @@ public class ViewFactory {
     * Admin Views Section
      */
 
-    public StringProperty getAdminSelectedMenuItem(){
+    public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem(){
         return adminSelectedMenuItem;
     }
 

@@ -2,6 +2,8 @@ package commercial.bankingapplication.Controllers;
 
 
 import commercial.bankingapplication.Models.Model;
+import commercial.bankingapplication.Views.AccountType;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,7 +18,7 @@ import java.util.ResourceBundle;
 public class LoginController  implements Initializable {
 
     @FXML
-    public ChoiceBox acc_selector;
+    public ChoiceBox<AccountType> acc_selector;
     @FXML
     public Label payee_address_lbl;
     @FXML
@@ -30,6 +32,14 @@ public class LoginController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // load the options
+        acc_selector.setItems(FXCollections.observableArrayList(AccountType.values()));
+//        acc_selector.setItems(FXCollections.observableArrayList(AccountType.CLIENT, AccountType.ADMIN));
+
+        // set default value(client) as access level
+        acc_selector.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
+        // add listener to check for the dropdown selection
+        acc_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_selector.getValue()));
         login_btn.setOnAction(event -> onLogin());
     }
 
