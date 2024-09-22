@@ -21,6 +21,7 @@ public class DashboardController implements Initializable {
     public TextField amount_fld;
     public TextArea message_fld;
     public Button send_money_btn;
+//    public Label checking_acc_num;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
