@@ -6,10 +6,7 @@ import commercial.bankingapplication.Views.AccountType;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -24,7 +21,7 @@ public class LoginController  implements Initializable {
     @FXML
     public TextField payee_address_fld;
     @FXML
-    public TextField password_fld;
+    public PasswordField password_fld;
     @FXML
     public Button login_btn;
     @FXML
@@ -46,9 +43,18 @@ public class LoginController  implements Initializable {
     private void onLogin(){
         // can use any node in that stage
         Stage stage = (Stage) error_lbl.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
         if (Model.getInstance().getViewFactory().getLoginAccountType().equals(AccountType.CLIENT)){
-            Model.getInstance().getViewFactory().showClientWindow();
+            // Evaluate login credentials
+            Model.getInstance().evaluateClientCred(payee_address_fld.getText(), password_fld.getText());
+            if (Model.getInstance().getClientLoginSuccessFlag()){
+                Model.getInstance().getViewFactory().showClientWindow();
+                // close the login stage
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                payee_address_fld.setText("");
+                password_fld.setText("");
+                error_lbl.setText("No Such Account!");
+            }
         } else {
             Model.getInstance().getViewFactory().showAdminWindow();
         }
