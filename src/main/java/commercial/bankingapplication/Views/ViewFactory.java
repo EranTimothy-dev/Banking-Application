@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -167,6 +168,8 @@ public class ViewFactory {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Banking Application");
+        stage.setResizable(false);
+        stage.getIcons().add(new Image(String.valueOf(ViewFactory.class.getResource("/Images/bankIcon.png"))));
         stage.show();
     }
 

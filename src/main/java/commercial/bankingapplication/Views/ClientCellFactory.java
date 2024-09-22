@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class ClientCellFactory extends ListCell<Client> {
 
+    // display the custom fxml file for cell data instead of text
     @Override
     protected void updateItem(Client client, boolean empty) {
         super.updateItem(client, empty);
