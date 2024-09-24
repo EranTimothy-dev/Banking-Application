@@ -53,11 +53,19 @@ public class LoginController  implements Initializable {
             } else {
                 payee_address_fld.setText("");
                 password_fld.setText("");
-                error_lbl.setText("No Such Account!");
+                error_lbl.setText("Invalid User Credentials!");
             }
         } else {
             if (Model.getInstance().getViewFactory().getLoginAccountType().equals(AccountType.ADMIN)){
-
+                Model.getInstance().evaluateAdminCred(payee_address_fld.getText(), password_fld.getText());
+                if(Model.getInstance().getAdminLoginSuccessFlag()){
+                    Model.getInstance().getViewFactory().closeStage(stage);
+                    Model.getInstance().getViewFactory().showAdminWindow();
+                } else{
+                    payee_address_fld.setText("");
+                    password_fld.setText("");
+                    error_lbl.setText("Invalid Admin Credentials!");
+                }
             }
         }
     }

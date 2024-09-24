@@ -16,6 +16,8 @@ public class Model {
     private final Client client;
     private boolean clientLoginSuccessFlag;
     // Admin Data Section
+    private final Admin admin;
+    private boolean adminLoginSuccessFlag;
 
     private Model(){
         this.viewFactory = new ViewFactory();
@@ -24,6 +26,8 @@ public class Model {
         this.clientLoginSuccessFlag = false;
         this.client = new Client("", "", "", null, null, null);
         // Admin Section
+        this.adminLoginSuccessFlag = false;
+        this.admin = new Admin("");
     }
 
     //create an instance of Model class if it has not already been created
@@ -59,8 +63,23 @@ public class Model {
         this.clientLoginSuccessFlag = flag;
     }
 
+
+    public boolean getAdminLoginSuccessFlag(){
+        return this.adminLoginSuccessFlag;
+    }
+
+    public void setAdminLoginSuccessFlag(boolean flag){
+        this.adminLoginSuccessFlag = flag;
+    }
+
     public Client getClient(){
-        return client;
+//        return client;
+        return this.client;
+    }
+
+    public Admin getAdmin(){
+//        return admin;
+        return this.admin;
     }
 
     public void evaluateClientCred(String pAddress, String password){
@@ -82,7 +101,18 @@ public class Model {
             }
         } catch (Exception e){
             e.printStackTrace();
+        }
+    }
 
+    public void evaluateAdminCred(String userName, String password){
+        ResultSet resultSet = databaseDriver.getAdminData(userName, password);
+        try{
+            if(resultSet.isBeforeFirst()){
+                this.admin.userNameProperty().set(resultSet.getString("Username"));
+                this.adminLoginSuccessFlag = true;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
