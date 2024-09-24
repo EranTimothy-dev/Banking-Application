@@ -56,7 +56,9 @@ public class LoginController  implements Initializable {
                 error_lbl.setText("No Such Account!");
             }
         } else {
-            Model.getInstance().getViewFactory().showAdminWindow();
+            if (Model.getInstance().getViewFactory().getLoginAccountType().equals(AccountType.ADMIN)){
+
+            }
         }
     }
 }
